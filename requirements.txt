@@ -1,0 +1,7 @@
+numpy
+torch
+scapy
+cryptography
+psutil
+matplotlib
+reportlab
