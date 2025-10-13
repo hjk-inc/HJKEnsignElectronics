@@ -8,12 +8,7 @@ Developed by **HJK Ensign Electronics**, HJKSwitch is a combined host and client
 - Encryption and intrusion detection
 - GUI dashboard and CLI support
 
-## Installation
-```bash
-git clone https://github.com/yourusername/HJKSwitch.git
-cd HJKSwitch
-pip install -r requirements.txt
-```
+
 
 ## License
 Custom license by HJK Ensign Electronics.
