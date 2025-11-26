@@ -1,223 +1,963 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/x-icon" href="Screenshot 2025-10-13 165140.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HJKSwitch - Futuristic Networking</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="assets/logo.png">
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <title>HJK Ensign Electronics - AI-Powered Decentralized Networking Solutions</title>
+    <meta name="description" content="Revolutionary AI-powered software replacing expensive network hardware. Offline-first decentralized networking for affordable internet access worldwide.">
+    <meta name="keywords" content="AI networking, decentralized internet, software-defined networking, affordable internet, mesh networks, load balancing, quantum encryption">
+    <meta name="author" content="HJK Maker">
+    
+    
+    
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HJK Ensign Electronics">
+    <meta name="twitter:description" content="AI-powered decentralized networking solutions">
+    
     <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1a365d;
+            --secondary: #2d3748;
+            --accent: #3182ce;
+            --light: #f7fafc;
+            --dark: #1a202c;
+            --success: #48bb78;
+            --warning: #ed8936;
+            --danger: #e53e3e;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
         body {
-            scroll-behavior: smooth;
-            font-family: 'Inter', sans-serif;
-            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
         }
-        body.dark {
-            background-color: #1a202c;
-            color: #e2e8f0;
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        body.light {
-            background-color: #f7fafc;
-            color: #2d3748;
-        }
-        .shadow-neon {
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.3);
-        }
-        .animate-fade-in {
-            animation: fadeIn 1s ease-in;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        #particles-js {
+        
+        /* Header & Navigation */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 0;
             position: fixed;
             width: 100%;
-            height: 100%;
-            z-index: -1;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        #terminal {
-            background: rgba(0, 0, 0, 0.8);
-            border: 1px solid cyan;
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        #terminal-input {
-            caret-color: cyan;
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
         }
-        pre code {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.9rem;
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .cta-button {
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #2c5aa0;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            margin-top: 70px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Components */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        /* Code blocks */
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #4a5568;
+            color: #a0aec0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
-<body class="dark" id="body">
-    <!-- Particles Background -->
-    <div id="particles-js" class="fixed inset-0 z-0"></div>
-
-    <!-- Navbar -->
-    <nav class="bg-gray-900 text-white p-4 sticky top-0 z-10 shadow-neon">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center">
-                <img src="assets/logo.png" alt="HJKSwitch Logo" class="h-10 mr-3">
-                <h1 class="text-2xl font-bold">HJKSwitch</h1>
-            </div>
-            <div class="flex items-center space-x-4">
-                <a href="#features" class="hover:text-cyan-400 transition">Features</a>
-                <a href="#installation" class="hover:text-cyan-400 transition">Installation</a>
-                <a href="#usage" class="hover:text-cyan-400 transition">Usage</a>
-                <a href="#contribute" class="hover:text-cyan-400 transition">Contribute</a>
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-700">
-                    <svg id="theme-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"></path>
-                    </svg>
-                </button>
-            </div>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">HJK Ensign Electronics</a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#technology">Technology</a></li>
+                    <li><a href="#components">Components</a></li>
+                    <li><a href="#implementation">Implementation</a></li>
+                    <li><a href="#download">Download</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#download" class="cta-button">Get Started</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section class="relative py-20 bg-gradient-to-b from-gray-900 to-blue-900 text-white animate-fade-in">
-        <div class="container mx-auto text-center">
-            <h2 class="text-5xl font-bold mb-4">HJKSwitch: Next-Gen Networking</h2>
-            <p class="text-lg mb-6 max-w-2xl mx-auto">A Python-powered virtual Wi-Fi solution with AI-driven traffic analysis, quantum-inspired encryption, and a futuristic Tkinter GUI.</p>
-            <a href="#installation" class="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-6 py-3 rounded-full hover:shadow-neon transition">Get Started</a>
+    <section class="hero">
+        <div class="container">
+            <h1>Revolutionizing Networking with AI-Powered Decentralization</h1>
+            <p>Replace expensive hardware hubs, switches, and gateways with intelligent software that makes networking accessible to everyone, everywhere.</p>
+            <a href="#technology" class="cta-button">Explore the Technology</a>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-16 bg-gray-800 text-white animate-fade-in">
-        <div class="container mx-auto">
-            <h3 class="text-3xl font-bold text-center mb-8">Futuristic Features</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-6 bg-gray-900 rounded-lg shadow-neon">
-                    <h4 class="text-xl font-semibold mb-2">Virtual Wi-Fi</h4>
-                    <p>Create seamless Wi-Fi networks without hardware, optimized for Linux and Windows.</p>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About HJK Ensign Electronics</h2>
+                <p>A groundbreaking approach to networking infrastructure that democratizes internet access through AI-powered software solutions.</p>
+            </div>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Our Mission</h3>
+                    <p>To eliminate the digital divide by replacing expensive network hardware with affordable, intelligent software solutions that work on existing devices.</p>
                 </div>
-                <div class="p-6 bg-gray-900 rounded-lg shadow-neon">
-                    <h4 class="text-xl font-semibold mb-2">AI Intelligence</h4>
-                    <p>Real-time traffic classification and anomaly detection using advanced ML models.</p>
+                
+                <div class="card">
+                    <div class="feature-icon">💡</div>
+                    <h3>The Vision</h3>
+                    <p>Creating a world where internet access is not limited by economic status, through decentralized, self-organizing network ecosystems.</p>
                 </div>
-                <div class="p-6 bg-gray-900 rounded-lg shadow-neon">
-                    <h4 class="text-xl font-semibold mb-2">Quantum Security</h4>
-                    <p>TLS encryption with quantum-inspired key rotation for unmatched security.</p>
+                
+                <div class="card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Innovation</h3>
+                    <p>Leveraging artificial intelligence, quantum-inspired encryption, and adaptive load balancing to create resilient network infrastructures.</p>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 2rem;">
+                <h3>The Problem We Solve</h3>
+                <p>Traditional networking infrastructure requires significant capital investment in hardware - routers, switches, access points, and gateways. This creates a barrier to internet access for:</p>
+                <ul style="margin: 1rem 0 1rem 2rem;">
+                    <li>Low-income communities and developing regions</li>
+                    <li>Educational institutions with limited budgets</li>
+                    <li>Small businesses and startups</li>
+                    <li>Emergency response and disaster recovery scenarios</li>
+                    <li>Remote and rural communities</li>
+                </ul>
+                <p>HJK Ensign Electronics transforms this paradigm by replacing physical hardware with sophisticated software that can run on standard computers and mobile devices.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Core Technology</h2>
+                <p>Advanced AI algorithms and networking protocols that create robust, self-healing network infrastructures.</p>
+            </div>
+            
+            <div class="card">
+                <h3>AI-Powered Load Balancing</h3>
+                <p>Our adaptive load balancing system uses machine learning to dynamically distribute network traffic based on real-time analysis of:</p>
+                
+                <div class="grid" style="margin: 1.5rem 0;">
+                    <div>
+                        <h4>Resource Metrics</h4>
+                        <ul>
+                            <li>CPU utilization and capacity</li>
+                            <li>Memory availability and usage patterns</li>
+                            <li>Battery levels on mobile devices</li>
+                            <li>Network bandwidth and latency</li>
+                            <li>Storage I/O performance</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4>AI Algorithms</h4>
+                        <ul>
+                            <li>Predictive resource allocation</li>
+                            <li>Anomaly detection and mitigation</li>
+                            <li>Historical performance analysis</li>
+                            <li>Failure prediction and prevention</li>
+                            <li>Adaptive quality of service (QoS)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="code-block">
+// Adaptive Load Balancing Algorithm
+class AdaptiveLoadBalancer {
+    constructor() {
+        this.nodes = new Map();
+        this.history = new Map();
+        this.predictionModel = new NeuralNetwork();
+    }
+    
+    calculateOptimalDistribution() {
+        const totalCapacity = this.calculateTotalCapacity();
+        const allocations = new Map();
+        
+        for (const [nodeId, nodeData] of this.nodes) {
+            const nodeScore = this.calculateNodeScore(nodeData);
+            const allocation = (nodeScore / totalCapacity) * 100;
+            allocations.set(nodeId, allocation);
+        }
+        
+        return this.normalizeAllocations(allocations);
+    }
+    
+    calculateNodeScore(nodeData) {
+        const cpuScore = (100 - nodeData.cpuUsage) * 0.3;
+        const ramScore = (100 - nodeData.ramUsage) * 0.25;
+        const batteryScore = nodeData.batteryLevel * 0.15;
+        const bandwidthScore = nodeData.availableBandwidth * 0.2;
+        const stabilityScore = nodeData.stabilityIndex * 0.1;
+        
+        return cpuScore + ramScore + batteryScore + bandwidthScore + stabilityScore;
+    }
+}
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 2rem;">
+                <h3>Quantum-Safe Encryption</h3>
+                <p>Our Multi-Type Encryption (MTE) system provides military-grade security using multiple encryption algorithms:</p>
+                
+                <div class="grid" style="margin: 1.5rem 0;">
+                    <div>
+                        <h4>Encryption Methods</h4>
+                        <ul>
+                            <li><strong>AES-256-GCM</strong>: Authenticated encryption for high-performance requirements</li>
+                            <li><strong>ChaCha20-Poly1305</strong>: Stream cipher optimized for mobile devices</li>
+                            <li><strong>Post-Quantum Cryptography</strong>: Future-proof algorithms resistant to quantum attacks</li>
+                            <li><strong>Multi-layer Encryption</strong>: Nested encryption for sensitive data</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4>Security Features</h4>
+                        <ul>
+                            <li>Perfect Forward Secrecy</li>
+                            <li>Key rotation and management</li>
+                            <li>Man-in-the-middle protection</li>
+                            <li>Traffic analysis resistance</li>
+                            <li>Zero-knowledge authentication</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="code-block">
+# Quantum-Safe Encryption Implementation
+class QuantumSafeEncryptor:
+    def __init__(self, master_key=None):
+        self.backend = default_backend()
+        self.key = self.derive_key(master_key) if master_key else os.urandom(32)
+        
+    def encrypt(self, data, encryption_type='AES-GCM'):
+        if encryption_type == 'AES-GCM':
+            iv = os.urandom(12)
+            cipher = Cipher(algorithms.AES(self.key), modes.GCM(iv), 
+                           backend=self.backend)
+            encryptor = cipher.encryptor()
+            ciphertext = encryptor.update(data) + encryptor.finalize()
+            return iv + encryptor.tag + ciphertext
+            
+        elif encryption_type == 'CHACHA20':
+            iv = os.urandom(16)
+            cipher = Cipher(algorithms.ChaCha20(self.key, iv), 
+                           mode=None, backend=self.backend)
+            encryptor = cipher.encryptor()
+            return iv + encryptor.update(data) + encryptor.finalize()
+            
+    def derive_key(self, password):
+        kdf = PBKDF2HMAC(
+            algorithm=hashes.SHA3_256(),
+            length=32,
+            salt=SALT,
+            iterations=100000,
+            backend=self.backend
+        )
+        return kdf.derive(password.encode())
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 2rem;">
+                <h3>Decentralized Network Architecture</h3>
+                <p>Our system creates self-organizing mesh networks that don't rely on central infrastructure:</p>
+                
+                <div class="grid" style="margin: 1.5rem 0;">
+                    <div>
+                        <h4>Network Topologies</h4>
+                        <ul>
+                            <li><strong>Mesh Networks</strong>: Every device connects to multiple other devices</li>
+                            <li><strong>Star Networks</strong>: Central admin node with client connections</li>
+                            <li><strong>Hybrid Approaches</strong>: Adaptive topology based on conditions</li>
+                            <li><strong>Dynamic Reconfiguration</strong>: Self-healing network paths</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4>Protocol Features</h4>
+                        <ul>
+                            <li>Automatic peer discovery</li>
+                            <li>Dynamic routing protocols</li>
+                            <li>Bandwidth aggregation</li>
+                            <li>Fault tolerance and redundancy</li>
+                            <li>Seamless handoff between nodes</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Installation Section -->
-    <section id="installation" class="py-16 bg-gray-900 text-white animate-fade-in">
-        <div class="container mx-auto">
-            <h3 class="text-3xl font-bold text-center mb-8">Installation</h3>
-            <div class="bg-gray-800 p-6 rounded-lg shadow-neon max-w-2xl mx-auto">
-                <pre class="bg-gray-900 text-cyan-400 p-4 rounded"><code>
-AI Everywhere
-Artificial Intelligence Everywhere — powering the next generation of human-machine evolution.
-From advanced databases to AI operating systems, HJK Corporation integrates innovation across every dimension
-                </code></pre>
+    <!-- Components Section -->
+    <section id="components">
+        <div class="container">
+            <div class="section-title">
+                <h2>System Components</h2>
+                <p>The three core components that form the HJK Ensign Electronics ecosystem.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Usage Section -->
-    <section id="usage" class="py-16 bg-gray-800 text-white animate-fade-in">
-        <div class="container mx-auto">
-            <h3 class="text-3xl font-bold text-center mb-8">Usage</h3>
-            <div class="bg-gray-900 p-6 rounded-lg shadow-neon max-w-2xl mx-auto">
-                <div id="terminal" class="bg-black p-4 rounded text-cyan-400 font-mono">
-                    <p>$ <span id="terminal-output">python hjkswitch_combined.py --mode host</span></p>
-                    <input id="terminal-input" type="text" class="bg-transparent border-none outline-none text-cyan-400 w-full" placeholder="Type command and press Enter...">
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>E-Hub</h3>
+                    <p><strong>Central Coordination Software</strong></p>
+                    <p>The E-Hub acts as the brain of the network, providing:</p>
+                    <ul>
+                        <li>Network coordination and management</li>
+                        <li>Device discovery and authentication</li>
+                        <li>Resource allocation and monitoring</li>
+                        <li>Security policy enforcement</li>
+                        <li>API for external integrations</li>
+                    </ul>
+                    <div class="code-block" style="margin-top: 1rem; font-size: 0.9rem;">
+// E-Hub Core Functions
+class EHub {
+    initializeNetwork() {
+        this.discoverNodes();
+        this.authenticateDevices();
+        this.establishEncryption();
+        this.startLoadBalancing();
+    }
+    
+    manageConnections() {
+        setInterval(() => {
+            this.updateNodeMetrics();
+            this.rebalanceLoad();
+            this.checkNodeHealth();
+        }, 5000);
+    }
+}
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>E-Switch</h3>
+                    <p><strong>AI-Powered Network Switching</strong></p>
+                    <p>Intelligent software-based switching with:</p>
+                    <ul>
+                        <li>AI-driven traffic routing</li>
+                        <li>Quality of Service (QoS) management</li>
+                        <li>Protocol translation and optimization</li>
+                        <li>Congestion control algorithms</li>
+                        <li>Deep packet inspection</li>
+                    </ul>
+                    <div class="code-block" style="margin-top: 1rem; font-size: 0.9rem;">
+# E-Switch Routing Logic
+class ESwitch:
+    def route_packet(self, packet, destination):
+        optimal_path = self.ai_router.find_optimal_path(
+            packet.priority, 
+            destination, 
+            self.network_state
+        )
+        
+        if self.congestion_detected(optimal_path):
+            alternative = self.find_alternative_path(optimal_path)
+            return self.forward_packet(packet, alternative)
+        
+        return self.forward_packet(packet, optimal_path)
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>E-Gateway</h3>
+                    <p><strong>Secure Internet Gateway</strong></p>
+                    <p>Encrypted internet sharing with advanced features:</p>
+                    <ul>
+                        <li>Multi-Type Encryption (MTE)</li>
+                        <li>Firewall and intrusion detection</li>
+                        <li>Bandwidth management and shaping</li>
+                        <li>Content filtering options</li>
+                        <li>VPN and proxy capabilities</li>
+                    </ul>
+                    <div class="code-block" style="margin-top: 1rem; font-size: 0.9rem;">
+// E-Gateway Security Implementation
+class EGateway {
+    setupEncryptedTunnel(source, destination) {
+        const sessionKey = this.keyExchange.generateSessionKey();
+        const encryptedTunnel = new EncryptedTunnel(
+            source, 
+            destination, 
+            sessionKey,
+            this.config.encryptionType
+        );
+        
+        return encryptedTunnel.establish();
+    }
+}
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contribute Section -->
-    <section id="contribute" class="py-16 bg-gradient-to-b from-blue-900 to-gray-900 text-white animate-fade-in">
-        <div class="container mx-auto text-center">
-            <h3 class="text-3xl font-bold mb-4">Join the Future</h3>
-            <p class="text-lg mb-6">Contribute to HJKSwitch and shape the future of networking. Visit our <a href="https://github.com/hjk-inc/HJKEnsignElectronics" class="underline hover:text-cyan-400">GitHub</a>.</p>
-            <a href="https://github.com/hjk-inc/HJKEnsignElectronics" class="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-6 py-3 rounded-full hover:shadow-neon transition">Contribute Now</a>
+    <!-- Implementation Section -->
+    <section id="implementation" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Implementation Guide</h2>
+                <p>Step-by-step instructions for deploying HJK Ensign Electronics in various environments.</p>
+            </div>
+            
+            <div class="card">
+                <h3>System Requirements</h3>
+                <div class="grid">
+                    <div>
+                        <h4>Minimum Requirements</h4>
+                        <ul>
+                            <li>Windows 10, macOS 10.14+, or Linux Ubuntu 18.04+</li>
+                            <li>Dual-core processor (1.5 GHz+)</li>
+                            <li>4GB RAM</li>
+                            <li>100MB available storage</li>
+                            <li>Wi-Fi adapter (for hotspot functionality)</li>
+                            <li>Administrator/root privileges</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4>Recommended Specifications</h4>
+                        <ul>
+                            <li>Quad-core processor (2.5 GHz+)</li>
+                            <li>8GB RAM or more</li>
+                            <li>500MB available storage</li>
+                            <li>Dual-band Wi-Fi adapter</li>
+                            <li>Gigabit Ethernet connection</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 2rem;">
+                <h3>Installation Process</h3>
+                
+                <h4 style="margin-top: 1.5rem;">Step 1: Download and Extract</h4>
+                <div class="code-block">
+# Download the latest release
+wget https://hjkensign.com/releases/ensign-v1.0.0.zip
+unzip ensign-v1.0.0.zip
+cd ensign-system
+                </div>
+                
+                <h4 style="margin-top: 1.5rem;">Step 2: Install Dependencies</h4>
+                <div class="code-block">
+# Python dependencies
+pip install -r requirements.txt
+
+# System dependencies (Ubuntu/Debian)
+sudo apt-get update
+sudo apt-get install hostapd dnsmasq python3-pip
+                </div>
+                
+                <h4 style="margin-top: 1.5rem;">Step 3: Configuration</h4>
+                <div class="code-block">
+# Edit configuration file
+nano config.json
+
+{
+  "mode": "admin",  # or "client"
+  "hotspot_ssid": "EnsignNet",
+  "hotspot_password": "SecurePass123",
+  "encryption_type": "AES-GCM",
+  "max_clients": 32,
+  "bandwidth_limit": 0  # 0 = unlimited
+}
+                </div>
+                
+                <h4 style="margin-top: 1.5rem;">Step 4: Run the System</h4>
+                <div class="code-block">
+# Run as administrator (Windows)
+python ensign_system.py --admin
+
+# Run as client
+python ensign_system.py --client
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 2rem;">
+                <h3>Use Cases and Deployment Scenarios</h3>
+                
+                <div class="grid">
+                    <div>
+                        <h4>Educational Institutions</h4>
+                        <p>Provide internet access in classrooms and campuses without expensive hardware infrastructure.</p>
+                        <ul>
+                            <li>Computer labs with shared internet</li>
+                            <li>Student device networks</li>
+                            <li>Temporary classroom setups</li>
+                            <li>Remote learning support</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4>Small Businesses</h4>
+                        <p>Affordable networking for startups and small enterprises.</p>
+                        <ul>
+                            <li>Office network sharing</li>
+                            <li>Guest Wi-Fi networks</li>
+                            <li>Branch office connectivity</li>
+                            <li>Mobile workforce support</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="grid" style="margin-top: 1.5rem;">
+                    <div>
+                        <h4>Community Networks</h4>
+                        <p>Connect neighborhoods and communities with shared internet resources.</p>
+                        <ul>
+                            <li>Community Wi-Fi projects</li>
+                            <li>Disaster response networks</li>
+                            <li>Rural internet access</li>
+                            <li>Public space connectivity</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4>Development & Testing</h4>
+                        <p>Create isolated network environments for software development and testing.</p>
+                        <ul>
+                            <li>Network application testing</li>
+                            <li>Security research environments</li>
+                            <li>Protocol development</li>
+                            <li>Educational networking labs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download">
+        <div class="container">
+            <div class="section-title">
+                <h2>Download & Get Started</h2>
+                <p>Join the networking revolution. Download HJK Ensign Electronics today.</p>
+            </div>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Windows Version</h3>
+                    <p>Complete package for Windows 10 and later.</p>
+                    <ul>
+                        <li>One-click installer</li>
+                        <li>Automatic dependency installation</li>
+                        <li>GUI administration tool</li>
+                        <li>Windows service integration</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="display: block; text-align: center; margin-top: 1.5rem;">Download for Windows</a>
+                </div>
+                
+                <div class="card">
+                    <h3>Linux Version</h3>
+                    <p>Package for Ubuntu, Debian, and CentOS.</p>
+                    <ul>
+                        <li>DEB and RPM packages</li>
+                        <li>Systemd service files</li>
+                        <li>Command-line interface</li>
+                        <li>Headless operation support</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="display: block; text-align: center; margin-top: 1.5rem;">Download for Linux</a>
+                </div>
+                
+                <div class="card">
+                    <h3>Source Code</h3>
+                    <p>Build from source for custom deployments.</p>
+                    <ul>
+                        <li>Complete source code</li>
+                        <li>Build instructions</li>
+                        <li>Development documentation</li>
+                        <li>Contribution guidelines</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="display: block; text-align: center; margin-top: 1.5rem;">View on GitHub</a>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 2rem;">
+                <h3>Documentation & Resources</h3>
+                <div class="grid">
+                    <div>
+                        <h4>User Guides</h4>
+                        <ul>
+                            <li><a href="#">Quick Start Guide</a></li>
+                            <li><a href="#">Administration Manual</a></li>
+                            <li><a href="#">Troubleshooting Guide</a></li>
+                            <li><a href="#">Security Best Practices</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4>Technical Documentation</h4>
+                        <ul>
+                            <li><a href="#">API Reference</a></li>
+                            <li><a href="#">Architecture Overview</a></li>
+                            <li><a href="#">Protocol Specifications</a></li>
+                            <li><a href="#">Performance Benchmarks</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4>Community</h4>
+                        <ul>
+                            <li><a href="#">Community Forum</a></li>
+                            <li><a href="#">Developer Chat</a></li>
+                            <li><a href="#">Blog & Updates</a></li>
+                            <li><a href="#">Contributor Guide</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with the HJK Ensign Electronics team.</p>
+            </div>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Project Information</h3>
+                    <p><strong>Project Lead:</strong> HJK Maker</p>
+                    <p><strong>Email:</strong> contact@hjkensign.com</p>
+                    <p><strong>GitHub:</strong> github.com/hjkensign</p>
+                    <p><strong>Documentation:</strong> docs.hjkensign.com</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Technical Support</h3>
+                    <p>For technical assistance and bug reports:</p>
+                    <p><strong>Support Forum:</strong> support.hjkensign.com</p>
+                    <p><strong>Issue Tracker:</strong> github.com/hjkensign/issues</p>
+                    <p><strong>Security Reports:</strong> security@hjkensign.com</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Contributions</h3>
+                    <p>We welcome contributions from the community:</p>
+                    <p><strong>Code Contributions:</strong> Pull requests on GitHub</p>
+                    <p><strong>Documentation:</strong> Wiki edits and improvements</p>
+                    <p><strong>Testing:</strong> Beta testing and bug reports</p>
+                    <p><strong>Translations:</strong> Localization efforts</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-6">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2025 HJKSwitch. Built by <a href="https://github.com/hjk-inc" class="underline hover:text-cyan-400">hjk-inc</a>.</p>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>HJK Ensign Electronics</h3>
+                    <p>Revolutionizing networking through AI-powered software solutions that make internet access affordable and accessible for everyone.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#technology">Technology</a></li>
+                        <li><a href="#components">Components</a></li>
+                        <li><a href="#implementation">Implementation</a></li>
+                        <li><a href="#download">Download</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">License</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 HJK Ensign Electronics. All rights reserved. | Open Source MIT License</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Smooth scroll for nav links
-            document.querySelectorAll('nav a').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
-
-            // Theme toggle
-            const toggleButton = document.getElementById('theme-toggle');
-            const themeIcon = document.getElementById('theme-icon');
-            const body = document.getElementById('body');
-            const currentTheme = localStorage.getItem('theme') || 'dark';
-            body.classList.add(currentTheme);
-            if (currentTheme === 'light') {
-                themeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"></path>';
-            }
-            toggleButton.addEventListener('click', () => {
-                body.classList.toggle('dark');
-                body.classList.toggle('light');
-                const newTheme = body.classList.contains('dark') ? 'dark' : 'light';
-                localStorage.setItem('theme', newTheme);
-                themeIcon.innerHTML = newTheme === 'dark' ?
-                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>' :
-                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"></path>';
-            });
-
-            // Particles.js
-            particlesJS('particles-js', {
-                particles: {
-                    number: { value: 80, density: { enable: true, value_area: 800 } },
-                    color: { value: '#00FFFF' },
-                    shape: { type: 'circle' },
-                    opacity: { value: 0.5, random: true },
-                    size: { value: 3, random: true },
-                    line_linked: { enable: true, distance: 150, color: '#00FFFF', opacity: 0.4, width: 1 },
-                    move: { enable: true, speed: 2, direction: 'none', random: false }
-                },
-                interactivity: {
-                    detect_on: 'canvas',
-                    events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
-                    modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
-                }
-            });
-
-            // Terminal simulation
-            const terminalInput = document.getElementById('terminal-input');
-            const terminalOutput = document.getElementById('terminal-output');
-            terminalInput.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
-                    const command = terminalInput.value.trim();
-                    if (command === 'python hjkswitch_combined.py --mode host') {
-                        terminalOutput.textContent = 'Starting HJKSwitch in host mode...';
-                    } else if (command === 'python hjkswitch_combined.py --mode client') {
-                        terminalOutput.textContent = 'Starting HJKSwitch in client mode...';
-                    } else if (command === 'python hjkswitch_combined.py --gen-pdf') {
-                        terminalOutput.textContent = 'Generating PDF of source code...';
-                    } else {
-                        terminalOutput.textContent = 'Command not recognized. Try: python hjkswitch_combined.py --mode host';
-                    }
-                    terminalInput.value = '';
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
+        
+        // Add active class to navigation based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Simple animation for cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all cards for animation
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
     </script>
 </body>
-</html>
+    </html>
